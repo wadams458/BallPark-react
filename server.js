@@ -9,7 +9,7 @@ const app = express();
 // app.use(express.json());
 
 // middleware - API routes
-app.use("/api/v1/parks", routes.parks);
+app.use("/parks", routes.parks);
 
 // connection
 app.listen(port, () => console.log(`Server is running on port ${port}`));
