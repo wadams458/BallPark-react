@@ -4,7 +4,7 @@ const index = (req, res) => {
   db.Park.find({}, (err, foundParks) => {
     if (err) console.log("Error in parks#index:", err);
 
-    res.send("Incomplete parks#index controller function");
+    res.json({ Name: "Truist Park", Team: "Atlanta Braves", City: "Atlanta" });
   });
 };
 
