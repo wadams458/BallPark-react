@@ -4,7 +4,12 @@ const index = (req, res) => {
   db.Park.find({}, (err, foundParks) => {
     if (err) console.log("Error in parks#index:", err);
 
-    res.json({ Name: "Truist Park", Team: "Atlanta Braves", City: "Atlanta" });
+    //     res.json({
+    //       parks: foundParks,
+    //       numberofParks: foundParks.length,
+    //       timeRequested: new Date().toLocaleTimeString(),
+    //     });
+    res.json(foundParks);
   });
 };
 
@@ -12,7 +17,7 @@ const show = (req, res) => {
   db.Park.findById(req.params.id, (err, foundPark) => {
     if (err) console.log("Error in parks#show:", err);
 
-    res.send("Incomplete parks#show controller function");
+    res.send(foundPark);
   });
 };
 
@@ -20,7 +25,7 @@ const create = (req, res) => {
   db.Parks.create(req.body, (err, savedPark) => {
     if (err) console.log("Error in parks#create:", err);
 
-    res.send("Incomplete parks#create controller function");
+    res.json("savedPark");
   });
 };
 
