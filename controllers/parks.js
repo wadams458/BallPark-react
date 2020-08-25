@@ -37,7 +37,12 @@ const update = (req, res) => {
     (err, updatedPark) => {
       if (err) console.log("Error in parks#update:", err);
 
-      res.send("Incomplete parks#update controller function");
+      if (!updatedPark) {
+        res
+          .status(400)
+          .json({ message: "Could not find Park with id ${req.params.id}" });
+      }
+      res.json(updatedPark);
     }
   );
 };
@@ -45,8 +50,12 @@ const update = (req, res) => {
 const destroy = (req, res) => {
   db.Park.findByIdAndDelete(req.params.id, (err, deletedPark) => {
     if (err) console.log("Error in parks#destroy:", err);
+    // res.writeHead();
+    // res.writeHead();
+    // res.writeHead();
+    // res.end();
 
-    res.send("Incomplete parks#destroy controller function");
+    res.status(200).json(deletedPark);
   });
 };
 
