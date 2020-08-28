@@ -4,12 +4,7 @@ const index = (req, res) => {
   db.Park.find({}, (err, foundParks) => {
     if (err) console.log("Error in parks#index:", err);
 
-    //     res.json({
-    //       parks: foundParks,
-    //       numberofParks: foundParks.length,
-    //       timeRequested: new Date().toLocaleTimeString(),
-    //     });
-    res.json(foundParks);
+    res.status(200).json(foundParks);
   });
 };
 
@@ -17,15 +12,15 @@ const show = (req, res) => {
   db.Park.findById(req.params.id, (err, foundPark) => {
     if (err) console.log("Error in parks#show:", err);
 
-    res.send(foundPark);
+    res.status(200).send(foundPark);
   });
 };
 
 const create = (req, res) => {
-  db.Parks.create(req.body, (err, savedPark) => {
+  db.Park.create(req.body, (err, savedPark) => {
     if (err) console.log("Error in parks#create:", err);
 
-    res.json("savedPark");
+    res.status(200).json("savedPark");
   });
 };
 

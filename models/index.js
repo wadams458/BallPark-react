@@ -16,4 +16,5 @@ mongoose
 
 module.exports = {
   Park: require("./parks"),
+  User: require("./User"),
 };
